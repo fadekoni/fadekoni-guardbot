@@ -66,7 +66,7 @@ exports.run = async(client, message, args) => {
   .addField("Kanal Koruma;", knll, true)
   .addField("CapsLock Engel;", capss, true)
   .addField("Mod Log Kanalı;", mod, true)
-  .setFooter("Fade Code v12 Aşırı Gelişmiş Guard Altyapısı !")
+  .setFooter("Fadekoni v12 Gelişmiş Guard Bot Sistemi")
   .setColor("RANDOM")
   message.channel.send(ayarlar)
   
