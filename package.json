@@ -1,11 +1,11 @@
 {
   "//1": "v12 Gelişmiş Fadekoni Guard Bot",
   "name": "v12-gelişmiş-guard",
-  "version": "0.0.2",
-  "description": "fadecode",
+  "version": "0.0.1",
+  "description": "fadekoni",
   "main": "fades.js",
   "scripts": {
-    "start": "node fades.js"
+    "start": "node fadekonis.js"
   },
   "dependencies": {
     "canvas": "^2.6.1",
