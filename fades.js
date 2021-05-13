@@ -26,8 +26,8 @@ let prefix = ayarlar.prefix;
 
 
 
-console.log("Fade Code v12 Gelişmiş TR'de İlk Guard Bot Altyapısı");
-console.log("Made By Fade Code x Ccd Code");
+console.log("Fadekoni v12 Gelişmiş Guard Bot Altyapısı");
+console.log("FadeAway tarafından yapıldı!");
 const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
 };
@@ -36,7 +36,7 @@ client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir("./komutlar/", (err, files) => {
   if (err) console.error(err);
-  log(`${files.length} komut yüklenecek. Benim Ailem Plasmictir !.`);
+  log(`${files.length} komut yüklenecek. Discord sunucumuz: https://discord.gg/7e8Kz3yzZ5`);
   files.forEach(f => {
     let props = require(`./komutlar/${f}`);
     log(`Yüklenen komut: ${props.help.name}.`);
@@ -99,7 +99,7 @@ client.unload = command => {
 };
 
 client.elevation = message => {
-  if (!message.guild) return message.author.send("**Beni Sunucuda Deneyin**");
+  if (!message.guild) return message.author.send("**Beni sunucuda deneyiniz.**");
   let permlvl = 0;
   if (message.member.permissions.has("BAN_MEMBERS")) permlvl = 2;
   if (message.member.permissions.has("ADMINISTRATOR")) permlvl = 3;
@@ -123,7 +123,7 @@ client.on("message", msg => {
       try {
         if(!msg.member.permissions.has("MANAGE_GUILD")) {
           msg.delete()
-          return msg.reply(new Discord.MessageEmbed().setDescription("**Bu Sunucuda Reklam Engel Sistemi Açık !**").setColor("RANDOM")).then(fade => fade.delete({timeout: 5000}))
+          return msg.reply(new Discord.MessageEmbed().setDescription("**Bu sunucuda reklam engelleme sistemi aktif! Buraya link atamazsın!**").setColor("RANDOM")).then(fade => fade.delete({timeout: 5000}))
         } 
       } catch(err) {
        console.log(err);
@@ -146,7 +146,7 @@ client.on("message", msg => {
       try {
         if(!msg.member.permissions.has("MANAGE_GUILD")) {
           msg.delete()
-          return msg.reply(new Discord.MessageEmbed().setDescription("**Bu Sunucuda Küfür Engel Sistemi Açık !**").setColor("RANDOM"))
+          return msg.reply(new Discord.MessageEmbed().setDescription("**Bu sunucuda küfür engel sistemi aktif! Küfür edemezsin.**").setColor("RANDOM"))
         }
       } catch(err) {
         console.log(err)
@@ -165,7 +165,7 @@ client.on("messageUpdate", msg => {
       try {
         if(!msg.member.permissions.has("MANAGE_GUILD")) {
           msg.delete()
-          return msg.reply(new Discord.MessageEmbed().setDescription("**Bu Sunucuda Küfür Engel Sistemi Açık !**").setColor("RANDOM"))
+          return msg.reply(new Discord.MessageEmbed().setDescription("**Bu sunucuda küfür engel sistemi aktif! Küfür edemezsin.**").setColor("RANDOM"))
         }
       } catch(err) {
         console.log(err)
@@ -191,7 +191,7 @@ client.on("roleDelete", async role => {
           permissions: role.permissions,
           mentionable: role.mentionable,
           position: role.position
-}, reason: 'Silinen Rolleri Tekrar Açtım !'})
+}, reason: 'Silinen rolleri tekrardan açtım.'})
   }
 })
 
@@ -256,7 +256,7 @@ client.on("message", async msg => {
              if (!msg.member.hasPermission("ADMINISTRATOR")) {
                if (!msg.mentions.users.first()) {
                  msg.delete()
-                 return msg.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`Hey Dostum! Bu sunucuda \`CapsLock Engel\` aktif vaziyette, affetmem. :sunglasses:`).setFooter("Fadeaway & CCD")).then(m => m.delete(5000))
+                 return msg.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`Hey dostum! Bu sunucuda \`CapsLock Engel\` aktif vaziyette, affetmem. :sunglasses:`).setFooter("Fadeaway & CCD")).then(m => m.delete(5000))
      }
        }
      }
@@ -273,7 +273,7 @@ client.on('guildBanAdd', async (guild, user) => {
   if(modlogs) {
     let embed = new Discord.MessageEmbed()
     .setColor('BLACK')
-    .setAuthor("Bir kişi sunucudan yasaklandı")
+    .setAuthor("Bir kişi sunucudan yasaklandı!")
     .setThumbnail(user.avatarURL()||user.defaultAvatarURL)
     .addField(`Yasaklanan kişi`, `\`\`\` ${user.tag} \`\`\` `)
     .setFooter(`${client.user.username} | Mod-Log Sistemi`)
@@ -290,7 +290,7 @@ client.on('guildBanRemove', async (guild, user) => {
    if(modlogs) {
      let embed = new Discord.MessageEmbed()
      .setColor('BLACK')
-     .setAuthor("Bir kişinin yasağı kaldırıldı")
+     .setAuthor("Bir kişinin yasağı kaldırıldı!")
      .setThumbnail(user.avatarURL()||user.defaultAvatarURL)
      .addField(`Yasağı kaldırılan kişi`, `\`\`\` ${user.tag} \`\`\` `)
      .setFooter(`${client.user.username} | Mod-Log Sistemi`)
@@ -308,10 +308,10 @@ client.on('channelCreate', async channel => {
      if (channel.type === "text") {
        let embed = new Discord.MessageEmbed()
        .setColor('BLACK')
-       .setAuthor("Bir Kanal Oluşturuldu")
-       .addField(`Oluşturulan Kanalın İsmi : `, `${channel.name}`)
-       .addField(`Oluşturulan Kanalın Türü : `, `Yazı`)
-       .addField(`Kanalı Oluşturan : `, `<@${user.id}>`)
+       .setAuthor("Bir kanal oluşturuldu!")
+       .addField(`Oluşturulan Kanalın İsmi: `, `${channel.name}`)
+       .addField(`Oluşturulan Kanalın Türü: `, `Yazı`)
+       .addField(`Kanalı Oluşturan: `, `<@${user.id}>`)
        .setFooter(`${client.user.username} | Mod-Log Sistemi`)
        .setTimestamp()
        modlogkanal.send(embed)
@@ -320,10 +320,10 @@ client.on('channelCreate', async channel => {
        
          let embed = new Discord.MessageEmbed()
          .setColor('BLACK')
-         .setAuthor("Bir Kanal Oluşturuldu")
-         .addField(`Oluşturulan Kanalın İsmi : `, `${channel.name}`)
-         .addField(`Oluşturulan Kanalın Türü : `, `Ses`)
-         .addField(`Kanalı Oluşturan : `, `<@${user.id}>`)
+         .setAuthor("Bir kanal oluşturuldu!")
+         .addField(`Oluşturulan Kanalın İsmi: `, `${channel.name}`)
+         .addField(`Oluşturulan Kanalın Türü: `, `Ses`)
+         .addField(`Kanalı Oluşturan: `, `<@${user.id}>`)
          .setFooter(`${client.user.username} | Mod-Log Sistemi`)
          .setTimestamp()
          modlogkanal.send(embed)
@@ -342,9 +342,9 @@ if(modlogs) {
 if (channel.type === "text") {
 let embed = new Discord.MessageEmbed()
 .setColor('BLACK')
-.setAuthor("Bir Kanal Silindi")
-.addField(`Silinen Kanalın İsmi : `, `${channel.name}`)
-.addField(`Silinen Kanalın Türü : `, `Yazı`)
+.setAuthor("Bir kanal silindi!")
+.addField(`Silinen Kanalın İsmi: `, `${channel.name}`)
+.addField(`Silinen Kanalın Türü: `, `Yazı`)
 .addField(`Kanalı Silen : `, `<@${user.id}>`)
 .setFooter(`${client.user.username} | Mod-Log Sistemi`)
 .setTimestamp()
@@ -354,10 +354,10 @@ modlogkanal.send(embed)
 
     let embed = new Discord.MessageEmbed()
     .setColor('BLACK')
-    .setAuthor("Bir Kanal Silindi")
-    .addField(`Silinen Kanalın İsmi : `, `${channel.name}`)
-    .addField(`Silinen Kanalın Türü : `, `Ses`)
-    .addField(`Kanalı Silen : `, `<@${user.id}>`)
+    .setAuthor("Bir kanal silindi!")
+    .addField(`Silinen Kanalın İsmi: `, `${channel.name}`)
+    .addField(`Silinen Kanalın Türü: `, `Ses`)
+    .addField(`Kanalı Silen: `, `<@${user.id}>`)
     .setFooter(`${client.user.username} | Mod-Log Sistemi`)
     .setTimestamp()
     modlogkanal.send(embed)
@@ -374,9 +374,9 @@ client.on('roleDelete', async role => {
    if(modlogs) {
      let embed = new Discord.MessageEmbed()
      .setColor('BLACK')
-     .setAuthor("Bir Rol Silindi")
-     .addField(`Silinen Rolün İsmi : `, `${role.name}`)
-     .addField(`Rolü Silen : `, `<@${user.id}>`)
+     .setAuthor("Bir rol silindi!")
+     .addField(`Silinen Rolün İsmi: `, `${role.name}`)
+     .addField(`Rolü Silen: `, `<@${user.id}>`)
      .setFooter(`${client.user.username} | Mod-Log Sistemi`)
      .setTimestamp()
      modlogkanal.send(embed)
@@ -392,9 +392,9 @@ client.on('roleDelete', async role => {
    if(modlogs) {
      let embed = new Discord.MessageEmbed()
      .setColor('BLACK')
-     .setAuthor("Bir Emoji Silindi")
-     .addField(`Silinen Emojinin İsmi : `, `${emoji.name}`)
-     .addField(`Emojiyi Silen : `, `<@${user.id}>`)
+     .setAuthor("Bir emoji silindi!")
+     .addField(`Silinen Emojinin İsmi: `, `${emoji.name}`)
+     .addField(`Emojiyi Silen: `, `<@${user.id}>`)
      .setFooter(`${client.user.username} | Mod-Log Sistemi`)
      .setTimestamp()
      modlogkanal.send(embed)
@@ -411,7 +411,7 @@ client.on('roleDelete', async role => {
     if(modlogs) {
       let embed = new Discord.MessageEmbed()
       .setColor('BLACK')
-      .setAuthor("Bir Rol Oluşturuldu")
+      .setAuthor("Bir rol oluşturuldu!")
       .addField(`Oluşturulan Rolün İsmi : `, `${role.name}`)
       .addField(`Rolü Oluşturan : `, `<@${user.id}>`)
       .setFooter(`${client.user.username} | Mod-Log Sistemi`)
@@ -431,7 +431,7 @@ client.on("messageUpdate", async (oldMessage, newMessage) => {
   if (oldMessage.content == newMessage.content) return;
   let embed = new Discord.MessageEmbed()
     .setColor('BLACK')
-    .setAuthor(`Mesaj Düzenlendi`, newMessage.author.avatarURL())
+    .setAuthor(`Mesaj düzenlendi!`, newMessage.author.avatarURL())
     .addField("Kullanıcı", newMessage.author)
     .addField("Eski Mesaj", "```" + oldMessage.content + "```")
     .addField("Yeni Mesaj", "```" + newMessage.content + "```")
@@ -454,7 +454,7 @@ client.on("messageDelete", async deletedMessage => {
   }
   let embed = new Discord.MessageEmbed()
     .setColor('BLACK')
-    .setAuthor(`Mesaj Silindi`, deletedMessage.author.avatarURL())
+    .setAuthor(`Mesaj silindi!`, deletedMessage.author.avatarURL())
     .addField("Kullanıcı", deletedMessage.author)
     .addField("Silinen Mesaj", "```" + deletedMessage.content + "```")
     .addField("Kanal Adı", deletedMessage.channel.name)
@@ -480,8 +480,8 @@ let matched = message.content.replace(/[^A-Z]/g, "").length
 let yuzde = percentage(matched, message.content.length)
 if (Math.round(yuzde) > acikmi.yuzde) {
   message.delete()
-  message.author.send(new Discord.MessageEmbed().setColor("BLACK").setTimestamp().setFooter(`${message.guild.name}`,message.guild.iconURL({dynamic:true})).setAuthor("CapsLock Engelleme Sistemi").setDescription("**Uyarı! "+message.guild.name+" sunucusunda büyük harfle yazma engeli bulunmaktadır!**\nBu sebepten göndermiş olduğunuz mesaj silindi."))
-  message.channel.send(new Discord.MessageEmbed().setColor("BLACK").setTimestamp().setFooter(`${message.guild.name}`,message.guild.iconURL({dynamic:true})).setAuthor("CapsLock Engelleme Sistemi",message.author.displayAvatarURL({dynamic:true})).setDescription(message.author.username+" - "+(message.member.nickname ? `${message.member.nickname} - ${message.author.id}` : message.author.id)+"\n**Uyarı!  Bu sunucuda büyük harfle yazma engeli bulunmaktadır!**\nBu sebepten göndermiş olduğunuz mesaj silindi.")).then(msg=>msg.delete({timeout:3000}))
+  message.author.send(new Discord.MessageEmbed().setColor("BLACK").setTimestamp().setFooter(`${message.guild.name}`,message.guild.iconURL({dynamic:true})).setAuthor("Caps Lock Engelleme Sistemi").setDescription("**Uyarı! "+message.guild.name+" sunucusunda büyük harfle yazma engeli bulunmaktadır!**\nBu sebepten göndermiş olduğunuz mesaj silindi."))
+  message.channel.send(new Discord.MessageEmbed().setColor("BLACK").setTimestamp().setFooter(`${message.guild.name}`,message.guild.iconURL({dynamic:true})).setAuthor("Caps Lock Engelleme Sistemi",message.author.displayAvatarURL({dynamic:true})).setDescription(message.author.username+" - "+(message.member.nickname ? `${message.member.nickname} - ${message.author.id}` : message.author.id)+"\n**Uyarı!  Bu sunucuda büyük harfle yazma engeli bulunmaktadır!**\nBu sebepten göndermiş olduğunuz mesaj silindi.")).then(msg=>msg.delete({timeout:3000}))
 }else{return}
 })
 
