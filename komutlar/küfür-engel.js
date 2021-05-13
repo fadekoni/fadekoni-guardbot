@@ -7,16 +7,16 @@ exports.run = async(client, message, args) => {
 
     if(args[0] === "aç") {
     db.set(`kfrengl_${message.guild.id}`, true)
-    message.channel.send(new Discord.MessageEmbed().setDescription("**Küfür Engel Sistemi Başarılı Şekilde Aktif Edildi !**").setColor("RANDOM"))
+    message.channel.send(new Discord.MessageEmbed().setDescription("**Küfür engel sistemi başarılıyla açıldı!**").setColor("RANDOM"))
   }
   
   if(args[0] === "kapat") {
     db.delete(`kfrengl_${message.guild.id}`)
-    message.channel.send(new Discord.MessageEmbed().setDescription("**Küfür Engel Sistemi Başarıyla Kapatıldı !**").setColor("RANDOM"))
+    message.channel.send(new Discord.MessageEmbed().setDescription("**Küfür engel sistemi başarılıyla kapatıldı!**").setColor("RANDOM"))
   }
   
   if(!args[0]) {
-    message.channel.send(new Discord.MessageEmbed().setDescription("**\`aç\` veya \`kapat\` Yazmalısın ! Örnek Kullanım; !küfür-engel aç / kapat**").setColor("RANDOM"))
+    message.channel.send(new Discord.MessageEmbed().setDescription("**\`aç\` veya \`kapat\` Yazmalısın ! Örnek Kullanım: !küfür-engel aç / kapat**").setColor("RANDOM"))
   }
   
 }
