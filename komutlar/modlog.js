@@ -6,15 +6,15 @@ if(!message.member.permissions.has("MANAGE_GUILD")) return message.channel.send(
 if(args[0] === "sıfırla"){
   if(db.has(`modlogkanaly_${message.guild.id}`)){
   db.delete(`modlogkanaly_${message.guild.id}`)
-  return message.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription("Mod Log Kanalı Sıfırlandı!"))
+  return message.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription("Mod-log kanalı sıfırlandı."))
   }
-  else return message.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription("Mod Log Kanalı Zaten Ayarlanmamış!"))
+  else return message.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription("Mod-log kanalı zaten ayarlanmamış."))
 };
 if(args[0] !== "sıfırla"){
   var kanal = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
   if(!kanal) return message.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription("Bir kanal belirtin! Eğer mod-log kanalını sıfırlamak istiyorsanız `mod-log sıfırla`"))
   db.set(`modlogkanaly_${message.guild.id}`, kanal.id)
-  return message.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`Mod Log Kanalı <#${kanal.id}> olarak ayarlandı!`))
+  return message.channel.send(new Discord.MessageEmbed().setColor('BLACK').setDescription(`Mod-log kanalı <#${kanal.id}> olarak ayarlandı!`))
 }
 }
 
