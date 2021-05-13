@@ -7,16 +7,16 @@ exports.run = async(client, message, args) => {
   
   if(args[0] === "aç") {
     db.set(`emjkrm_${message.guild.id}`, true)
-    message.channel.send(new Discord.MesageEmbed().setDescription("**Emoji Koruma Sistemi Başarıyla Açıldı !**").setColor("RANDOM"))
+    message.channel.send(new Discord.MesageEmbed().setDescription("**Emoji koruma sistemi başarılıyla açıldı!**").setColor("RANDOM"))
   }
   
   if(args[0] === "kapat") {
     db.delete(`emjkrm_${message.guild.id}`)
-    message.channel.send(new Discord.MessageEmbed().setDescription("**Emoji Koruma Sistemi Başarıyla Kapatıldı !**").setColor("RANDOM"))
+    message.channel.send(new Discord.MessageEmbed().setDescription("**Emoji koruma sistemi başarılıyla kapatıldı!**").setColor("RANDOM"))
   }
   
   if(!args[0]) {
-    message.channel.send(new Discord.MessageEmbed().setDescription("**\`aç\` veya \`kapat\` Yazmalısın ! Örnek Kullanım; !reklam-engel aç / kapat**").setColor("RANDOM"))
+    message.channel.send(new Discord.MessageEmbed().setDescription("**\`aç\` veya \`kapat\` Yazmalısın ! Örnek Kullanım: !reklam-engel aç / kapat**").setColor("RANDOM"))
   }
   
 }
