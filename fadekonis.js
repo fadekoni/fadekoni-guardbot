@@ -256,7 +256,7 @@ client.on("message", async msg => {
              if (!msg.member.hasPermission("ADMINISTRATOR")) {
                if (!msg.mentions.users.first()) {
                  msg.delete()
-                 return msg.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`Hey dostum! Bu sunucuda \`CapsLock Engel\` aktif vaziyette, affetmem. :sunglasses:`).setFooter("Fadeaway & CCD")).then(m => m.delete(5000))
+                 return msg.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`Hey dostum! Bu sunucuda \`CapsLock Engel\` aktif vaziyette, affetmem. :sunglasses:`).setFooter("Fadekoni")).then(m => m.delete(5000))
      }
        }
      }
