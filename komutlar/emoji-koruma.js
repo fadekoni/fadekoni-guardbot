@@ -3,7 +3,7 @@ const db = require('quick.db')
 
 exports.run = async(client, message, args) => {
   
-  if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(new Discord.MesageEmbed().setDescription("Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın!").setColor("RANDOM"))
+  if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription("Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın!").setColor("RANDOM"))
   
   if(args[0] === "aç") {
     db.set(`emjkrm_${message.guild.id}`, true)
