@@ -17,7 +17,7 @@ module.exports = client => {
   );
   client.user.setStatus("idle");
   var oyun = [
-    `FadeCode <3`,
+    `Fadekoni <3`,
   ];
 
   setInterval(function() {
