@@ -7,7 +7,7 @@ exports.run = async(client, message, args) => {
   
   if(args[0] === "aç") {
     db.set(`emjkrm_${message.guild.id}`, true)
-    message.channel.send(new Discord.MesageEmbed().setDescription("**Emoji koruma sistemi başarıyla açıldı!**").setColor("RANDOM"))
+    message.channel.send(new Discord.MessageEmbed().setDescription("**Emoji koruma sistemi başarıyla açıldı!**").setColor("RANDOM"))
   }
   
   if(args[0] === "kapat") {
