@@ -5,7 +5,7 @@ exports.run = async(client, message, args) => {
   
 
   const yardım = new Discord.MessageEmbed()
-  .setTitle(`${client.username} Yardım Menüsü`)
+  .setTitle(`Yardım Menüsü`)
   .setDescription(`
   
   **__Guard Komutları__**
